@@ -54,13 +54,35 @@ export default class Todo {
       return;
     }
 
-    const newTodo = { id: Date.now(), text: this.inputElem.value };
+    const newTodo = {
+      id: Date.now(),
+      text: this.inputElem.value,
+      status: "pending",
+    };
     this.setData([...this.getData(), newTodo]);
 
     this.inputElem.value = "";
   }
 
-  handleCompleteTodo(event) {}
+  handleCompleteTodo(event) {
+    let newData = this.getData();
+    const id = parseInt(event.currentTarget.parentNode.parentNode.id);
+    const targetIndex = newData.findIndex((todo) => todo.id === id);
+
+    newData[targetIndex].status = "completed";
+
+    this.setData(newData);
+  }
+
+  handlePendingTodo(event) {
+    let newData = this.getData();
+    const id = parseInt(event.currentTarget.parentNode.parentNode.id);
+    const targetIndex = newData.findIndex((todo) => todo.id === id);
+
+    newData[targetIndex].status = "pending";
+
+    this.setData(newData);
+  }
 
   handleDeleteTodo(event) {
     const id = parseInt(event.currentTarget.parentNode.parentNode.id);
@@ -84,18 +106,28 @@ export default class Todo {
     const todoText = document.createElement("span");
     const btnDiv = document.createElement("div");
 
-    const completeBtn = this.createTodoBtn(
-      "v",
-      ["btn", "todo-complete-btn"],
-      this.handleCompleteTodo
-    );
+    let statusChangeBtn;
+    if (todo.status === "pending") {
+      statusChangeBtn = this.createTodoBtn(
+        "v",
+        ["btn", "todo-status-btn", "todo-complete-btn"],
+        this.handleCompleteTodo
+      );
+    } else if (todo.status === "completed") {
+      statusChangeBtn = this.createTodoBtn(
+        "r",
+        ["btn", "todo-status-btn", "todo-pending-btn"],
+        this.handlePendingTodo
+      );
+      todoItem.classList.add("completed");
+    }
     const deleteBtn = this.createTodoBtn(
       "x",
       ["btn", "todo-delete-btn"],
       this.handleDeleteTodo
     );
     btnDiv.classList.add("todo-btns");
-    btnDiv.appendChild(completeBtn);
+    btnDiv.appendChild(statusChangeBtn);
     btnDiv.appendChild(deleteBtn);
 
     todoText.classList.add("todo-text");

@@ -12,6 +12,10 @@
   margin-bottom: 15px;
 }
 
+.todo-item.completed {
+  background-color: var(--highlight-color);
+}
+
 .todo-text {
   align-self: center;
   overflow: hidden;
@@ -19,13 +23,21 @@
   text-overflow: ellipsis;
 }
 
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+}
+
 .todo-btns {
   justify-self: end;
   display: flex;
 }
 
-.todo-complete-btn {
+.todo-status-btn {
   margin-right: 10px;
+}
+
+.todo-pending-btn {
+  background-color: var(--main-color-strong);
 }
 
 .todo-delete-btn {
