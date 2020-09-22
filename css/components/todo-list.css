@@ -1,0 +1,16 @@
+.todo-list {
+  width: 100%;
+}
+
+.todo-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 0;
+}
+
+.todo-delete-btn {
+  background-color: #e74c3c;
+}
