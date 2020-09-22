@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
 @import "reset.css";
+@import "variables.css";
 @import "utils.css";
 @import "components/header.css";
 @import "components/form.css";
@@ -8,20 +9,19 @@
 html {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 16px;
-  color: #2d3436;
+  color: var(--white);
 }
 
 body {
   display: flex;
   justify-content: center;
   height: 100vh;
-  background-color: #eee;
+  background-color: var(--background-color);
 }
 
 .container {
-  background-color: #fff;
-  width: 30vw;
-  min-width: 300px;
+  background-color: var(--main-color);
+  width: 600px;
   height: fit-content;
   margin-top: 100px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);

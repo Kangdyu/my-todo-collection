@@ -4,11 +4,28 @@
 
 .todo-item {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 80% 20%;
 
-  padding: 10px 0;
+  background-color: var(--main-color-strong);
+  padding: 10px 20px;
+  margin-bottom: 15px;
+}
+
+.todo-text {
+  align-self: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.todo-btns {
+  justify-self: end;
+  display: flex;
+}
+
+.todo-complete-btn {
+  margin-right: 10px;
 }
 
 .todo-delete-btn {
