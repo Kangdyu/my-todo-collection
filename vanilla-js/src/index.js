@@ -1,14 +1,32 @@
 import Todo from "./Todo.js";
 
-function init() {
-  const LOCAL_STORAGE_KEY = "todo";
+const filterContainerElem = document.querySelector(".todo-filter-container");
+const filterElems = {
+  all: document.getElementById("filter-all"),
+  ongoing: document.getElementById("filter-ongoing"),
+  finished: document.getElementById("filter-finished"),
+};
 
-  const formElem = document.querySelector(".todo-form");
-  const inputElem = document.querySelector(".todo-input");
-  const listElem = document.querySelector(".todo-list");
-
-  const todo = new Todo(formElem, inputElem, listElem, LOCAL_STORAGE_KEY);
-  todo.init();
+function handleFiltering(event) {
+  if (event.target.classList.contains("todo-filter")) {
+    const filter = event.target.dataset.filter;
+    const prevFilter = todo.getFilter();
+    todo.setFilter(filter);
+    renderFilterBtn(prevFilter);
+  }
 }
 
-init();
+function renderFilterBtn(prevFilter) {
+  if (prevFilter) {
+    filterElems[prevFilter].classList.remove("selected");
+  }
+  filterElems[todo.getFilter()].classList.add("selected");
+}
+
+const LOCAL_STORAGE_KEY = "todo";
+
+const todo = new Todo("all", LOCAL_STORAGE_KEY);
+todo.init();
+
+filterContainerElem.addEventListener("click", handleFiltering);
+renderFilterBtn(null);

@@ -5,6 +5,7 @@
 @import "components/header.css";
 @import "components/form.css";
 @import "components/todo-list.css";
+@import "components/footer.css";
 
 html {
   font-family: "Noto Sans KR", sans-serif;
@@ -23,7 +24,7 @@ body {
   background-color: var(--main-color);
   width: 600px;
   height: fit-content;
-  margin-top: 100px;
+  margin: 100px 0;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 

@@ -1,12 +1,12 @@
 .btn {
   outline: none;
   border: none;
+  background-color: var(--highlight-color);
+  color: white;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
   font-size: 1.5rem;
-  background-color: var(--highlight-color);
-  color: white;
 
   display: flex;
   justify-content: center;

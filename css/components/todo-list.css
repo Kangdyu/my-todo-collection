@@ -12,7 +12,7 @@
   margin-bottom: 15px;
 }
 
-.todo-item.completed {
+.todo-item.finished {
   background-color: var(--highlight-color);
 }
 
@@ -23,7 +23,7 @@
   text-overflow: ellipsis;
 }
 
-.todo-item.completed .todo-text {
+.todo-item.finished .todo-text {
   text-decoration: line-through;
 }
 
@@ -36,7 +36,7 @@
   margin-right: 10px;
 }
 
-.todo-pending-btn {
+.todo-ongoing-btn {
   background-color: var(--main-color-strong);
 }
 

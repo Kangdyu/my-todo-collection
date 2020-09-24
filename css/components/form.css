@@ -24,3 +24,26 @@
   right: 20px;
   top: 5px;
 }
+
+.todo-filter-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+}
+
+.todo-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  background-color: var(--main-color-strong);
+
+  cursor: pointer;
+}
+
+.todo-filter.selected {
+  background-color: var(--highlight-color);
+}
