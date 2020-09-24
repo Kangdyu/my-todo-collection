@@ -47,3 +47,51 @@
 .todo-filter.selected {
   background-color: var(--highlight-color);
 }
+
+.todo-list {
+  width: 100%;
+}
+
+.todo-item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 80% 20%;
+
+  background-color: var(--main-color-strong);
+  padding: 10px 20px;
+  margin-bottom: 15px;
+}
+
+.todo-item.finished {
+  background-color: var(--highlight-color);
+}
+
+.todo-text {
+  align-self: center;
+  overflow: hidden;
+  padding: 10px 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.todo-item.finished .todo-text {
+  text-decoration: line-through;
+}
+
+.todo-btns {
+  justify-self: end;
+  align-self: center;
+  display: flex;
+}
+
+.todo-status-btn {
+  margin-right: 10px;
+}
+
+.todo-ongoing-btn {
+  background-color: var(--main-color-strong);
+}
+
+.todo-delete-btn {
+  background-color: #e74c3c;
+}

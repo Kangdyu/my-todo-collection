@@ -3,8 +3,7 @@
 @import "variables.css";
 @import "utils.css";
 @import "components/header.css";
-@import "components/form.css";
-@import "components/todo-list.css";
+@import "components/main.css";
 @import "components/footer.css";
 
 html {
