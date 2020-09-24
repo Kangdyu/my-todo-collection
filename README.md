@@ -9,6 +9,8 @@ Todo 개발은 새로운 것을 시작하고 경험해보기에 가장 ~~만만�
 ---
 ## Common Features
 
+![todo](https://user-images.githubusercontent.com/43704761/94131948-93b84580-fe99-11ea-8712-14a0ef30b2b7.png)
+
 - Add todo
 - Complete todo
 - Delete todo
@@ -18,7 +20,7 @@ Todo 개발은 새로운 것을 시작하고 경험해보기에 가장 ~~만만�
 ---
 ## Collection
 
-- [ ] Vanilla JS (In progress)
+- [x] Vanilla JS
 - [ ] Vanilla JS + Redux
 - [ ] React
 - [ ] React + Redux
