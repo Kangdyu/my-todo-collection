@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla JS + Redux | TODO</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="title">TODO</h1>
+        <h2 class="subtitle">with Vanilla JS + Redux</h2>
+      </header>
+      <main class="todo">
+        <form class="todo-form">
+          <div class="todo-input-container">
+            <input
+              class="todo-input"
+              type="text"
+              placeholder="enter new todo"
+            />
+            <button class="btn todo-submit">+</button>
+          </div>
+        </form>
+        <div class="todo-filter-container">
+          <div id="filter-all" class="todo-filter" data-filter="all">All</div>
+          <div id="filter-ongoing" class="todo-filter" data-filter="ongoing">
+            Ongoing
+          </div>
+          <div id="filter-finished" class="todo-filter" data-filter="finished">
+            Finished
+          </div>
+        </div>
+        <ul class="todo-list"></ul>
+      </main>
+      <footer class="footer">
+        <span>&copy; 2020 Kangdyu</span>
+      </footer>
+    </div>
+    <script type="module" src="./src/index.js"></script>
+  </body>
+</html>
