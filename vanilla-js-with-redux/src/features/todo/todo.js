@@ -1,7 +1,7 @@
 import store from "../../app/store";
 import { TODO_LOCAL_STORAGE_KEY } from "../../common/constants";
 import { setDataToLocalStorage } from "../../common/localStorageController";
-import { addTodo } from "../../features/todo/todoSlice";
+import { addTodo, deleteTodo } from "../../features/todo/todoSlice";
 
 const todoForm = document.querySelector(".todo-form");
 const todoInput = document.querySelector(".todo-input");
@@ -13,8 +13,12 @@ function handleAddTodo(event) {
   todoInput.value = "";
 }
 
+function handleDeleteTodo(event) {
+  const targetId = parseInt(event.currentTarget.parentNode.parentNode.id);
+  store.dispatch(deleteTodo({ targetId }));
+}
+
 function handleFinishTodo() {}
-function handleDeleteTodo() {}
 function handleOngoingTodo() {}
 
 function createTodoBtn(text, classNames, eventHandler) {
