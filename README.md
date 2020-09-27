@@ -21,6 +21,6 @@ Todo 개발은 새로운 것을 시작하고 경험해보기에 가장 ~~만만�
 ## Collection
 
 - [x] Vanilla JS
-- [ ] Vanilla JS + Redux
+- [x] Vanilla JS + Redux
 - [ ] React
 - [ ] React + Redux
