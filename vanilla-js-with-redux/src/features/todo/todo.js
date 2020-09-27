@@ -1,7 +1,11 @@
 import store from "../../app/store";
 import { TODO_LOCAL_STORAGE_KEY } from "../../common/constants";
 import { setDataToLocalStorage } from "../../common/localStorageController";
-import { addTodo, deleteTodo } from "../../features/todo/todoSlice";
+import {
+  addTodo,
+  deleteTodo,
+  changeTodoStatus,
+} from "../../features/todo/todoSlice";
 
 const todoForm = document.querySelector(".todo-form");
 const todoInput = document.querySelector(".todo-input");
@@ -9,6 +13,9 @@ const todoList = document.querySelector(".todo-list");
 
 function handleAddTodo(event) {
   event.preventDefault();
+
+  if (todoInput.value === "") return;
+
   store.dispatch(addTodo(todoInput.value, "ongoing"));
   todoInput.value = "";
 }
@@ -18,8 +25,15 @@ function handleDeleteTodo(event) {
   store.dispatch(deleteTodo({ targetId }));
 }
 
-function handleFinishTodo() {}
-function handleOngoingTodo() {}
+function handleFinishTodo(event) {
+  const targetId = parseInt(event.currentTarget.parentNode.parentNode.id);
+  store.dispatch(changeTodoStatus({ targetId, status: "finished" }));
+}
+
+function handleOngoingTodo(event) {
+  const targetId = parseInt(event.currentTarget.parentNode.parentNode.id);
+  store.dispatch(changeTodoStatus({ targetId, status: "ongoing" }));
+}
 
 function createTodoBtn(text, classNames, eventHandler) {
   const btn = document.createElement("button");
@@ -89,6 +103,4 @@ export function init() {
   store.subscribe(() =>
     setDataToLocalStorage(TODO_LOCAL_STORAGE_KEY, store.getState().todo)
   );
-
-  console.log(store.getState().todo);
 }
