@@ -89,9 +89,21 @@ function createTodoItem(todo) {
 
 function render() {
   todoList.innerHTML = "";
-  store.getState().todo.forEach((todo) => {
-    todoList.appendChild(createTodoItem(todo));
-  });
+
+  const filter = store.getState().filter;
+  const todos = store.getState().todo;
+
+  if (filter === "all") {
+    todos.forEach((todo) => {
+      todoList.appendChild(createTodoItem(todo));
+    });
+  } else if (filter === "ongoing" || filter === "finished") {
+    todos
+      .filter((todo) => todo.status === filter)
+      .forEach((todo) => todoList.appendChild(createTodoItem(todo)));
+  } else {
+    console.error("SOMETHING WRONG: FILTER");
+  }
 }
 
 export function init() {
