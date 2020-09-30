@@ -15,6 +15,13 @@ function reducer(state, action) {
       return [...state, action.payload];
     case "deleteTodo":
       return state.filter((todo) => todo.id !== action.payload.id);
+    case "changeTodoStatus":
+      const { targetId, status } = action.payload;
+      const newTodo = state.slice();
+      const targetTodo = newTodo.find((todo) => todo.id === parseInt(targetId));
+      targetTodo.status = status;
+
+      return newTodo;
     default:
       throw new Error();
   }
