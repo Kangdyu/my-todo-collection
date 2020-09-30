@@ -1,0 +1,26 @@
+.todo-form {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.todo-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.todo-input {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--white);
+  background-color: var(--main-color-strong);
+  padding: 10px;
+  padding-right: 60px;
+  color: white;
+}
+
+.todo-submit {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+}
