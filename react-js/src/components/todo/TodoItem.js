@@ -18,6 +18,14 @@ function TodoItem({ todo, dispatch }) {
     });
   };
 
+  const onDeleteBtnClick = (event) => {
+    const targetId = event.currentTarget.parentNode.parentNode.id;
+    dispatch({
+      type: "deleteTodo",
+      payload: { targetId },
+    });
+  };
+
   return (
     <li
       key={todo.id}
@@ -41,7 +49,9 @@ function TodoItem({ todo, dispatch }) {
             r
           </Button>
         )}
-        <Button className="todo-delete-btn">x</Button>
+        <Button className="todo-delete-btn" onClick={onDeleteBtnClick}>
+          x
+        </Button>
       </div>
     </li>
   );
