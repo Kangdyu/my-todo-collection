@@ -22,5 +22,5 @@ Todo 개발은 새로운 것을 시작하고 경험해보기에 가장 ~~만만�
 
 - [x] Vanilla JS
 - [x] Vanilla JS + Redux
-- [ ] React
+- [x] React
 - [ ] React + Redux
