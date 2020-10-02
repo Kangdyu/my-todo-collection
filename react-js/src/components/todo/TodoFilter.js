@@ -1,18 +1,37 @@
 import React from "react";
 import "./TodoFilter.css";
 
-function TodoFilter() {
+function TodoFilter({ filter, setFilter }) {
+  const onFilterBtnClick = (event) => {
+    const targetFilter = event.target.dataset.filter;
+    if (filter !== targetFilter) {
+      setFilter(targetFilter);
+    }
+  };
+
   return (
     <div className="todo-filter-container">
-      <div id="filter-all" className="todo-filter" data-filter="all">
-        All
-      </div>
-      <div id="filter-ongoing" className="todo-filter" data-filter="ongoing">
+      <button
+        className={`todo-filter${filter === "all" ? " selected" : ""}`}
+        data-filter="all"
+        onClick={onFilterBtnClick}
+      >
+        all
+      </button>
+      <button
+        className={`todo-filter${filter === "ongoing" ? " selected" : ""}`}
+        data-filter="ongoing"
+        onClick={onFilterBtnClick}
+      >
         Ongoing
-      </div>
-      <div id="filter-finished" className="todo-filter" data-filter="finished">
+      </button>
+      <button
+        className={`todo-filter${filter === "finished" ? " selected" : ""}`}
+        data-filter="finished"
+        onClick={onFilterBtnClick}
+      >
         Finished
-      </div>
+      </button>
     </div>
   );
 }

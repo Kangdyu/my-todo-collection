@@ -37,7 +37,7 @@ function TodoContainer() {
   );
   useEffect(() => {
     setDataToLocalStorage(TODO_LOCAL_STORAGE_KEY, todos);
-  }, [todos]);
+  });
   const [filter, setFilter] = useState("all");
 
   return (
