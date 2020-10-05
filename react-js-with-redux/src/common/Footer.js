@@ -8,10 +8,12 @@ const StyledFooter = styled.footer`
   font-size: 0.8rem;
 `;
 
-export default function Footer() {
+function Footer() {
   return (
     <StyledFooter>
       <span>&copy; 2020 Kangdyu</span>
     </StyledFooter>
   );
 }
+
+export default Footer;

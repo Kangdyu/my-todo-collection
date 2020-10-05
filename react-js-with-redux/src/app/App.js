@@ -1,9 +1,9 @@
 import React from "react";
 import reset from "styled-reset";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
-import TodoContainer from "./features/todo/TodoContainer";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import TodoContainer from "../features/todo/TodoContainer";
+import Footer from "../common/Footer";
+import Header from "../common/Header";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -19,6 +19,14 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     height: 100vh;
     background-color: ${({ theme }) => theme.palette.background};
+  }
+
+  input, button {
+    font: inherit;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 `;
 

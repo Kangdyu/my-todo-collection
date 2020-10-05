@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -7,13 +7,7 @@ const StyledHeader = styled.header`
   flex-direction: column;
   align-items: center;
   padding: 30px 0;
-
-  ${(props) => {
-    const bgColor = props.theme.palette.mainStrong;
-    return css`
-      background-color: ${bgColor};
-    `;
-  }}
+  background-color: ${({ theme }) => theme.palette.mainStrong};
 
   h1 {
     font-size: 3rem;
@@ -22,7 +16,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-export default function Header({ title, subtitle }) {
+function Header({ title, subtitle }) {
   return (
     <StyledHeader>
       <h1>{title}</h1>
@@ -30,3 +24,5 @@ export default function Header({ title, subtitle }) {
     </StyledHeader>
   );
 }
+
+export default Header;
