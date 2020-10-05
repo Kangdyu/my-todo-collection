@@ -25,13 +25,36 @@ const todoSlice = createSlice({
         };
       },
     },
-    deleteTodo(state, action) {
-      const { targetId } = action.payload;
-      return state.data.filter((todo) => todo.id !== targetId);
+    deleteTodo: {
+      reducer(state, action) {
+        const { targetId } = action.payload;
+        state.data = state.data.filter((todo) => todo.id !== targetId);
+      },
+      prepare(targetId) {
+        return {
+          payload: {
+            targetId,
+          },
+        };
+      },
+    },
+    changeTodoStatus: {
+      reducer(state, action) {
+        const { targetId, status } = action.payload;
+        state.data.find((todo) => todo.id === targetId).status = status;
+      },
+      prepare(targetId, status) {
+        return {
+          payload: {
+            targetId,
+            status,
+          },
+        };
+      },
     },
   },
 });
 
-export const { addTodo, deleteTodo } = todoSlice.actions;
+export const { addTodo, deleteTodo, changeTodoStatus } = todoSlice.actions;
 
 export default todoSlice.reducer;

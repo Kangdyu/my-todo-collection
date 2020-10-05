@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { changeTodoStatus, deleteTodo } from "./todoSlice";
 import Button from "../../common/Button";
 
 const Item = styled.li`
@@ -36,11 +38,19 @@ const Item = styled.li`
 `;
 
 function TodoItem({ todo }) {
-  const onFinishBtnClick = (event) => {};
+  const dispatch = useDispatch();
 
-  const onOngoingBtnClick = (event) => {};
+  const onFinishBtnClick = (event) => {
+    dispatch(changeTodoStatus(todo.id, "finished"));
+  };
 
-  const onDeleteBtnClick = (event) => {};
+  const onOngoingBtnClick = (event) => {
+    dispatch(changeTodoStatus(todo.id, "ongoing"));
+  };
+
+  const onDeleteBtnClick = (event) => {
+    dispatch(deleteTodo(todo.id));
+  };
 
   return (
     <Item status={todo.status}>
