@@ -52,9 +52,27 @@ const todoSlice = createSlice({
         };
       },
     },
+    changeFilter: {
+      reducer(state, action) {
+        const { filter } = action.payload;
+        state.filter = filter;
+      },
+      prepare(filter) {
+        return {
+          payload: {
+            filter,
+          },
+        };
+      },
+    },
   },
 });
 
-export const { addTodo, deleteTodo, changeTodoStatus } = todoSlice.actions;
+export const {
+  addTodo,
+  deleteTodo,
+  changeTodoStatus,
+  changeFilter,
+} = todoSlice.actions;
 
 export default todoSlice.reducer;
