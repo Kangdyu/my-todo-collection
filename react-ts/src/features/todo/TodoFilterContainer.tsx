@@ -1,7 +1,8 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { changeFilter } from "./todoSlice";
+import { RootState, useAppDispatch } from "../../app/store";
+import { changeFilter, TodoFilter } from "./todoSlice";
 
 const Container = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const Container = styled.div`
   margin-bottom: 15px;
 `;
 
-const FilterButton = styled.button`
+const FilterButton = styled.button<{selected: boolean}>`
   outline: none;
   border: none;
   color: inherit;
@@ -27,12 +28,12 @@ const FilterButton = styled.button`
     selected ? theme.palette.highlight : theme.palette.mainStrong};
 `;
 
-function TodoFilter() {
-  const filter = useSelector((state) => state.todo.filter);
-  const dispatch = useDispatch();
+function TodoFilterContainer() {
+  const filter = useSelector<RootState>((state) => state.todo.filter);
+  const dispatch = useAppDispatch();
 
-  const onFilterBtnClick = (event) => {
-    const targetFilter = event.target.dataset.filter;
+  const onFilterBtnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const targetFilter = event.currentTarget.dataset.filter as TodoFilter;
     dispatch(changeFilter(targetFilter));
   };
 
@@ -63,4 +64,4 @@ function TodoFilter() {
   );
 }
 
-export default TodoFilter;
+export default TodoFilterContainer;

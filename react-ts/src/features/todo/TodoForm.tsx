@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { useAppDispatch } from "../../app/store";
 import Button from "../../common/Button";
 import { addTodo } from "./todoSlice";
 
@@ -29,16 +29,16 @@ const Form = styled.form`
 
 function TodoForm() {
   const [value, setValue] = useState("");
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const onSubmit = (event) => {
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     dispatch(addTodo(value, "ongoing"));
     setValue("");
   };
 
-  const onChange = (event) => {
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 

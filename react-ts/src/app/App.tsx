@@ -53,7 +53,7 @@ function App() {
     >
       <GlobalStyle />
       <Container>
-        <Header title="TODO" subtitle="with React + Redux" />
+        <Header title="TODO" subtitle="with React + Redux + TypeScript" />
         <TodoContainer />
         <Footer />
       </Container>

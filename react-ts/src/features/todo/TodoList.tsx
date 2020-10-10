@@ -1,15 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { RootState } from "../../app/store";
 import TodoItem from "./TodoItem";
+import { Todo, TodoFilter } from "./todoSlice";
 
 const List = styled.ul`
   width: 100%;
 `;
 
 function TodoList() {
-  const todos = useSelector((state) => state.todo.data);
-  const filter = useSelector((state) => state.todo.filter);
+  const todos = useSelector<RootState>((state) => state.todo.data) as Todo[];
+  const filter = useSelector<RootState>((state) => state.todo.filter) as TodoFilter;
 
   let todoItems;
   if (filter === "all") {

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import TodoFilter from "./TodoFilter";
+import TodoFilterContainer from "./TodoFilterContainer";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
@@ -12,7 +12,7 @@ function TodoContainer() {
   return (
     <Container>
       <TodoForm />
-      <TodoFilter />
+      <TodoFilterContainer />
       <TodoList />
     </Container>
   );

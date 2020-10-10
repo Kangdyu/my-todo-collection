@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { changeTodoStatus, deleteTodo } from "./todoSlice";
+import { changeTodoStatus, deleteTodo, Todo, TodoStatus } from "./todoSlice";
 import Button from "../../common/Button";
 
-const Item = styled.li`
+const Item = styled.li<{status: TodoStatus}>`
   width: 100%;
   display: grid;
   grid-template-columns: 80% 20%;
@@ -37,18 +37,22 @@ const Item = styled.li`
   }
 `;
 
-function TodoItem({ todo }) {
+type TodoItemProps = {
+  todo: Todo;
+}
+
+function TodoItem({ todo }: TodoItemProps) {
   const dispatch = useDispatch();
 
-  const onFinishBtnClick = (event) => {
+  const onFinishBtnClick = () => {
     dispatch(changeTodoStatus(todo.id, "finished"));
   };
 
-  const onOngoingBtnClick = (event) => {
+  const onOngoingBtnClick = () => {
     dispatch(changeTodoStatus(todo.id, "ongoing"));
   };
 
-  const onDeleteBtnClick = (event) => {
+  const onDeleteBtnClick = () => {
     dispatch(deleteTodo(todo.id));
   };
 

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 
-const StyledButton = styled.button`
+type StyledButtonProps = {
+  bgColor: string;
+  color: string;
+}
+
+const StyledButton = styled.button<StyledButtonProps>`
   outline: none;
   border: none;
   border-radius: 50%;
@@ -25,7 +30,13 @@ const StyledButton = styled.button`
   }};
 `;
 
-function Button({ children, bgColor, color, ...attrs }) {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: React.ReactNode;
+  bgColor: string;
+  color: string;
+}
+
+function Button({ children, bgColor, color, ...attrs }: ButtonProps) {
   return (
     <StyledButton bgColor={bgColor} color={color} {...attrs}>
       {children}
