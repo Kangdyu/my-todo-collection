@@ -24,4 +24,4 @@ Todo 개발은 새로운 것을 시작하고 경험해보기에 가장 ~~만만�
 - [x] Vanilla JS + Redux
 - [x] React
 - [x] React + Redux (Folder structure: [Redux Style Guide](https://redux.js.org/style-guide/style-guide#structure-files-as-feature-folders-or-ducks))
-- [ ] React + TS (porting React + Redux project)
+- [x] React + TS (porting React + Redux project)
